@@ -1,0 +1,346 @@
+================================================================================
+        KIBORI GAMING - COMPLETE APK BUILD GUIDE & FILE LOCATIONS
+================================================================================
+
+📍 YOUR PROJECT LOCATION:
+   C:\Users\Arjun\OneDrive\Desktop\GAMES.APP\
+
+📱 YOUR FLUTTER APP:
+   C:\Users\Arjun\OneDrive\Desktop\GAMES.APP\flutter_games\
+
+================================================================================
+                        WHAT YOU NEED TO DO
+================================================================================
+
+🔽 DOWNLOAD FLUTTER SDK
+
+Direct Link: 
+https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.24.5-stable.zip
+
+File Size: 1.1 GB
+Save To: C:\Users\Arjun\Downloads\
+
+Alternative Link (if above doesn't work):
+https://docs.flutter.dev/get-started/install/windows
+(Click "Download Flutter SDK" button)
+
+================================================================================
+                        INSTALLATION STEPS
+================================================================================
+
+STEP 1: EXTRACT FLUTTER
+------------------------
+1. Open: C:\Users\Arjun\Downloads\
+2. Find: flutter_windows_3.24.5-stable.zip
+3. Right-click → "Extract All..."
+4. Extract to: C:\ (just C drive, it will create C:\flutter folder)
+5. Result: You'll have C:\flutter\ with bin, packages folders inside
+
+STEP 2: ADD FLUTTER TO PATH
+---------------------------
+1. Press Windows key + X
+2. Click "System"
+3. Click "Advanced system settings" (on the right)
+4. Click "Environment Variables" button (at bottom)
+5. Under "User variables" section:
+   - Find and click "Path"
+   - Click "Edit"
+   - Click "New"
+   - Type: C:\flutter\bin
+   - Click OK
+   - Click OK
+   - Click OK
+6. IMPORTANT: Close ALL PowerShell/Terminal windows
+7. Open NEW PowerShell
+
+STEP 3: VERIFY FLUTTER
+----------------------
+Open PowerShell and type:
+
+   flutter doctor
+
+You should see something like:
+   [✓] Flutter (Channel stable, 3.24.5)
+
+STEP 4: INSTALL ANDROID STUDIO
+------------------------------
+Download: https://developer.android.com/studio
+
+1. Run the installer
+2. Click "Next" through all steps
+3. Install all components (accept defaults)
+4. Wait for Android SDK to download (~2.5 GB)
+5. Installation takes 15-20 minutes
+
+STEP 5: ACCEPT LICENSES
+-----------------------
+Open PowerShell and run:
+
+   flutter doctor --android-licenses
+
+Press 'y' to accept all licenses (there are about 7 of them)
+
+STEP 6: BUILD YOUR APK
+----------------------
+Open PowerShell and run these commands:
+
+   cd C:\Users\Arjun\OneDrive\Desktop\GAMES.APP\flutter_games
+   flutter pub get
+   flutter build apk --debug
+
+First build takes 10-15 minutes (be patient!)
+You'll see progress messages, don't interrupt it.
+
+================================================================================
+                    YOUR APK FILE LOCATION (AFTER BUILD)
+================================================================================
+
+📦 APK FILE WILL BE AT:
+
+   C:\Users\Arjun\OneDrive\Desktop\GAMES.APP\flutter_games\build\app\outputs\flutter-apk\app-debug.apk
+
+   This is the file you install on your Android phone!
+
+File Details:
+- Name: app-debug.apk
+- Size: ~20-25 MB
+- Works on: Android 5.0 and above
+
+================================================================================
+                        QUICK BUILD SCRIPT
+================================================================================
+
+Instead of typing commands manually, you can run:
+
+   C:\Users\Arjun\OneDrive\Desktop\GAMES.APP\FLUTTER_INSTALL_AND_BUILD.bat
+
+This script will:
+✓ Check if Flutter is installed
+✓ Install dependencies
+✓ Build your APK
+✓ Open the folder with the APK file
+
+================================================================================
+                        INSTALL APK ON PHONE
+================================================================================
+
+METHOD 1: USB CABLE
+-------------------
+1. Connect phone to PC with USB cable
+2. Copy app-debug.apk to phone's Download folder
+3. On phone, open Files app → Downloads
+4. Tap app-debug.apk
+5. Allow "Install from Unknown Sources" if prompted
+6. Tap "Install"
+7. Tap "Open"
+
+METHOD 2: CLOUD STORAGE
+-----------------------
+1. Upload app-debug.apk to Google Drive/Dropbox
+2. On phone, download the APK file
+3. Open the downloaded file
+4. Allow "Install from Unknown Sources" if prompted
+5. Tap "Install"
+6. Tap "Open"
+
+METHOD 3: BLUETOOTH
+------------------
+1. Right-click app-debug.apk on PC
+2. Send to → Bluetooth device
+3. Select your phone
+4. Accept file on phone
+5. Open the file
+6. Allow "Install from Unknown Sources" if prompted
+7. Tap "Install"
+
+================================================================================
+                        TROUBLESHOOTING
+================================================================================
+
+PROBLEM: "flutter is not recognized"
+SOLUTION: 
+- Flutter not in PATH or PowerShell not restarted
+- Try: C:\flutter\bin\flutter doctor
+- Or: Restart PowerShell after adding PATH
+
+PROBLEM: "Android SDK not found"
+SOLUTION:
+- Install Android Studio first
+- Run: flutter doctor --android-licenses
+
+PROBLEM: "cmdline-tools component is missing"
+SOLUTION:
+1. Open Android Studio
+2. Tools → SDK Manager
+3. SDK Tools tab
+4. Check "Android SDK Command-line Tools"
+5. Click Apply
+
+PROBLEM: Build is stuck or very slow
+SOLUTION:
+- First build always takes 10-15 minutes (this is NORMAL!)
+- Don't cancel it, just wait
+- Subsequent builds will be much faster (1-2 minutes)
+
+PROBLEM: "Gradle build failed"
+SOLUTION:
+- Make sure you're connected to internet
+- Try: flutter clean
+- Then: flutter pub get
+- Then: flutter build apk
+
+PROBLEM: Java/JDK errors
+SOLUTION:
+- Android Studio includes JDK
+- Make sure Android Studio installation completed fully
+
+================================================================================
+                        FILE STRUCTURE
+================================================================================
+
+Your project files:
+
+C:\Users\Arjun\OneDrive\Desktop\GAMES.APP\
+├── games\                              (Original web app)
+├── flutter_games\                      (New Flutter app)
+│   ├── lib\
+│   │   ├── main.dart                   (App entry point)
+│   │   ├── screens\
+│   │   │   ├── login_screen.dart       (Login page)
+│   │   │   ├── dashboard_screen.dart   (Game selection)
+│   │   │   └── game_screen.dart        (Game view)
+│   │   ├── games\
+│   │   │   └── game_list.dart          (7 games data)
+│   │   └── widgets\
+│   │       ├── snake_game_widget.dart  (Snake game)
+│   │       ├── flappy_bird_widget.dart (Flappy Bird)
+│   │       ├── tic_tac_toe_widget.dart (Tic-Tac-Toe)
+│   │       └── brick_breaker_widget.dart
+│   ├── android\                        (Android config)
+│   ├── build\                          (Build output - created after build)
+│   │   └── app\
+│   │       └── outputs\
+│   │           └── flutter-apk\
+│   │               └── app-debug.apk   ⭐ YOUR APK FILE HERE!
+│   ├── pubspec.yaml                    (Dependencies)
+│   └── README.md                       (Documentation)
+├── FLUTTER_INSTALL_AND_BUILD.bat       (Build script)
+├── DOWNLOAD_AND_INSTALL_FLUTTER.md     (Installation guide)
+├── QUICK_START.md                      (Quick guide)
+└── APK_BUILD_COMPLETE_GUIDE.txt        (This file)
+
+================================================================================
+                        IMPORTANT LINKS
+================================================================================
+
+Flutter SDK Download:
+https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.24.5-stable.zip
+
+Flutter Documentation:
+https://docs.flutter.dev/get-started/install/windows
+
+Android Studio Download:
+https://developer.android.com/studio
+
+Flutter Installation Guide:
+https://docs.flutter.dev/get-started/install/windows
+
+Troubleshooting:
+https://docs.flutter.dev/get-started/install/windows#troubleshooting
+
+================================================================================
+                        TIME REQUIREMENTS
+================================================================================
+
+Download Flutter:        5-15 minutes (depending on internet)
+Extract & Setup:         2-3 minutes
+Download Android Studio: 10-20 minutes
+Install Android Studio:  15-20 minutes
+Build APK (first time):  10-15 minutes
+---------------------------------------------------
+TOTAL TIME:             ~45-75 minutes
+
+Subsequent builds:       1-2 minutes only!
+
+================================================================================
+                        AFTER YOU GET THE APK
+================================================================================
+
+✓ Your APK file: app-debug.apk (~20-25 MB)
+✓ App name on phone: KIBORI GAMING
+✓ Contains: 7 games (3 fully playable, 4 coming soon)
+✓ Design: White background, black text
+✓ Login: Username/password or guest mode
+✓ Works on: Any Android phone (version 5.0+)
+
+Games included:
+1. ✅ Snake - Fully playable with swipe controls
+2. ✅ Tic-Tac-Toe - Fully playable
+3. ✅ Flappy Bird - Basic version playable
+4. 🔄 Brick Breaker - Coming soon screen
+5. 🔄 Vice City 3D - Coming soon screen
+6. 🔄 Neon Racer - Coming soon screen
+7. 🔄 Temple Runner - Coming soon screen
+
+================================================================================
+                        FINAL CHECKLIST
+================================================================================
+
+Before building APK, make sure:
+☐ Flutter downloaded and extracted to C:\flutter
+☐ C:\flutter\bin added to PATH
+☐ PowerShell restarted after adding PATH
+☐ flutter doctor shows Flutter installed
+☐ Android Studio installed
+☐ Android licenses accepted
+☐ Internet connected (for first build)
+
+To build APK:
+☐ cd flutter_games
+☐ flutter pub get
+☐ flutter build apk
+☐ Wait 10-15 minutes for first build
+
+To get APK:
+☐ Open: build\app\outputs\flutter-apk\
+☐ Find: app-debug.apk
+☐ Copy to phone
+☐ Install and enjoy!
+
+================================================================================
+                        NEED HELP?
+================================================================================
+
+If you encounter any issues:
+
+1. Run: flutter doctor
+   This will show what's missing or needs fixing
+
+2. Read error messages carefully
+   They usually tell you exactly what's wrong
+
+3. Check this guide's troubleshooting section
+
+4. Common fixes:
+   - Restart PowerShell
+   - Run: flutter clean
+   - Run: flutter pub get
+   - Re-run build command
+
+================================================================================
+                        SUCCESS!
+================================================================================
+
+Once you see:
+
+   "✓ Built build\app\outputs\flutter-apk\app-debug.apk"
+
+Your APK is ready! Find it at:
+
+   C:\Users\Arjun\OneDrive\Desktop\GAMES.APP\flutter_games\build\app\outputs\flutter-apk\app-debug.apk
+
+Copy this file to your phone and install it!
+
+Your gaming app is ready to play! 🎮📱
+
+================================================================================
